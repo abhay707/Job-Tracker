@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    :root {
+      --paper: #EEF1EF; --card: #fff; --ink: #14231D; --soft: #4A5B53;
+      --line: #D8DFDA; --pine: #1F6F54; --amber: #B7791F; --red: #A63A3A;
+    }
+    body {
+      width: 340px; margin: 0; background: var(--paper); color: var(--ink);
+      font-family: system-ui, -apple-system, sans-serif; font-size: 13px;
+    }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 12px; background: var(--ink); color: #fff;
+    }
+    header b { font-size: 14px; }
+    header .count { font-size: 11px; opacity: 0.85; }
+    .tabs { display: flex; border-bottom: 1px solid var(--line); background: var(--card); }
+    .tabs button {
+      flex: 1; border: none; background: none; padding: 9px 0; cursor: pointer;
+      font-weight: 600; color: var(--soft); border-bottom: 2px solid transparent; font-size: 13px;
+    }
+    .tabs button.active { color: var(--pine); border-bottom-color: var(--pine); }
+    section { padding: 12px; }
+    label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--soft); margin: 8px 0 3px; }
+    input, select {
+      width: 100%; box-sizing: border-box; border: 1px solid var(--line);
+      border-radius: 6px; padding: 7px 8px; font-size: 13px; background: var(--card);
+    }
+    .row { display: flex; gap: 8px; }
+    .row > div { flex: 1; }
+    .primary {
+      width: 100%; margin-top: 12px; background: var(--pine); color: #fff; border: none;
+      border-radius: 7px; padding: 10px; font-size: 14px; font-weight: 700; cursor: pointer;
+    }
+    .primary:disabled { opacity: 0.5; cursor: default; }
+    .ghost {
+      background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+      padding: 7px 10px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--ink);
+    }
+    .ghost.danger { color: var(--red); }
+    .hint { font-size: 11px; color: var(--soft); margin-top: 6px; line-height: 1.4; }
+    .job {
+      background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+      padding: 8px 10px; margin-bottom: 6px;
+    }
+    .job b { font-size: 13px; display: block; }
+    .job span { font-size: 11px; color: var(--soft); }
+    .job .del { float: right; border: none; background: none; color: var(--red);
+      cursor: pointer; font-size: 12px; font-weight: 700; }
+    .toolbar { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    #status {
+      font-size: 12px; font-weight: 700; color: var(--pine); text-align: center;
+      min-height: 16px; margin-top: 6px;
+    }
+    .empty { text-align: center; color: var(--soft); padding: 24px 8px; }
+    #savedList { max-height: 260px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <b>Job Capture</b>
+    <span class="count" id="countBadge">0 saved</span>
+  </header>
+
+  <div class="tabs">
+    <button id="tabCapture" class="active">Capture</button>
+    <button id="tabSaved">Saved</button>
+  </div>
+
+  <section id="captureView">
+    <label>Company</label>
+    <input id="company" placeholder="Detecting..." />
+    <label>Role title</label>
+    <input id="role" placeholder="Detecting..." />
+    <div class="row">
+      <div>
+        <label>Source</label>
+        <select id="source">
+          <option>LinkedIn</option><option>Naukri</option><option>Referral</option>
+          <option>Instahyre</option><option>Cutshort</option><option>Wellfound</option>
+          <option>Company careers page</option><option>Campus / TnP</option><option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Role type</label>
+        <select id="roleType">
+          <option>Full-stack</option><option>Backend</option><option>Frontend</option>
+          <option>SDE / Generalist</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <label>Job link</label>
+    <input id="link" />
+    <button class="primary" id="saveBtn">Save this job</button>
+    <div id="status"></div>
+    <div class="hint">Fields auto-fill from the page. Edit anything that looks off, then save.</div>
+  </section>
+
+  <section id="savedView" style="display:none">
+    <div class="toolbar">
+      <button class="ghost" id="copyJson">Copy JSON for tracker</button>
+      <button class="ghost" id="downloadCsv">Download CSV</button>
+      <button class="ghost danger" id="clearAll">Clear all</button>
+    </div>
+    <div id="status2" style="font-size:12px;font-weight:700;color:var(--pine);min-height:16px;"></div>
+    <div id="savedList"></div>
+    <div class="hint">Copy JSON, then open your Runway tracker and use <b>Import</b> to paste everything in at once.</div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

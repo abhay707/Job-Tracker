@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Job Capture - Runway",
+  "version": "1.0.0",
+  "description": "One-click capture of job postings (company, role, source, link) with JSON export for your Job Search Runway tracker.",
+  "permissions": ["activeTab", "scripting", "storage", "clipboardWrite"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Capture this job"
+  }
+}

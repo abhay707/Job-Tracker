@@ -1,66 +1,86 @@
-# ✈️ Job Search Runway
+# Job Search Runway
 
-> A high-fidelity, visual job-search logbook designed to keep your recruiting sprint on a clear, target-driven trajectory.
+A high-fidelity, visual job-search logbook designed to monitor and sustain application momentum on a clear, target-driven trajectory.
 
-`Job Search Runway` is a clean, data-driven tracker built to organize, visualize, and sustain your job application pace. Built around the concept of a **12-week mission runway**, it provides instant feedback on whether you are hitting your weekly targets, flags applications that need follow-ups, and integrates with the Job Capture browser extension.
+Job Search Runway is a light, data-driven tracker built to organize, visualize, and sustain your job application pace. Built around the concept of a 12-week runway, it provides immediate feedback on whether you are hitting your weekly targets, flags stale applications, and imports data directly from a browser extension.
 
 ---
 
-## 🎨 Design Concept & Aesthetics
+## Deployment
+
+The live application is deployed and accessible at:
+* **Live Demo:** [Job Search Runway](https://your-deployment-link.com)
+
+*(Update the link above with your production URL once deployed)*
+
+---
+
+## Design System
 
 * **The Runway Strip**: A signature 12-week bar chart at the top of the interface visualizing your weekly applications relative to your target.
-* **Warm Paper Theme**: Styled using a refined ink green-black font on a cool light-gray paper background (`#EEF1EF`), with curated indicator accents (pine for offers, violet for assessments, amber for interviews/follow-ups, and muted red for rejections).
-* **Premium Typography**: Built using *Archivo* for modern, bold display headers combined with *IBM Plex Mono* for tabular and data points.
+* **Warm Paper Theme**: Styled using a refined ink green-black font on a cool light-gray paper background (`#EEF1EF`), with curated status indicators (pine for offers, violet for assessments, amber for interviews/follow-ups, and muted red for rejections).
+* **Typography**: Built using Archivo for display headers and IBM Plex Mono for data points.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-* **12-Week Sprint Visualization**: Easily track how many applications you log each week. A dynamic pace-indicator tells you if you are **on pace**, **mid-pace**, or **behind pace** for the current week.
+* **12-Week Sprint Visualization**: Track how many applications you log each week. A dynamic pace-indicator highlights whether you are on pace, mid-pace, or behind pace for the current week.
 * **Adjustable Weekly Targets**: Interactively scale your target application count up or down directly from the runway header.
-* **Follow-up Flags ($\color{#B7791F}{\text{⚑}}$)**: Automatically flags applications that have been silent for more than 7 days, placing them at the top of your list for action.
-* **Status Pipeline**: Categorize applications across *Saved*, *Applied*, *Assessment*, *Interview*, *Offer*, and *Rejected* states.
-* **Seamless JSON Import**: Quick-import job details copied from the **Job Capture** extension.
-* **Local-first Persistence**: Auto-saves your entire dashboard to browser local storage via a built-in fallback shim.
+* **Stale Application Flags (⚑)**: Automatically flags applications that have been silent for more than 7 days, placing them at the top of your queue for immediate follow-up.
+* **Status Pipeline**: Categorize applications across Saved, Applied, Assessment, Interview, Offer, and Rejected states.
+* **Local-first Persistence**: Automatically persists all tracker data locally in your browser's local storage.
 
 ---
 
-## 🛠️ Tech Stack
+## Browser Extension Integration
 
-* **Frontend Framework**: [React 19](https://react.dev/) + [Vite 8](https://vite.dev/)
-* **Bundler & Dev Server**: Vite (with Hot Module Replacement)
-* **Styling**: Vanilla CSS (encapsulated inline style block)
+Job Search Runway supports direct JSON data imports from a companion browser extension to automate data logging.
+
+### How to Import:
+1. Use the browser extension to auto-capture job listings from supported job boards.
+2. In the extension interface, navigate to the **Saved** tab and select **Copy JSON for tracker**.
+3. In the Job Search Runway app, click **Import** in the toolbar.
+4. Paste the copied JSON payload and click **Import jobs**. The tracker will automatically skip duplicate jobs.
+
+*(Add links to the extension repository or Chrome Web Store listing here)*
+
+---
+
+## Tech Stack
+
+* **Frontend**: React 19 + Vite 8
+* **Bundler & Development Server**: Vite (with Hot Module Replacement)
+* **Styling**: Vanilla CSS (inline encapsulation)
 * **Linter**: Oxlint (configured in `.oxlintrc.json`)
 
 ---
 
-## 💻 Getting Started
+## Local Development
 
 ### Prerequisites
 
-Make sure you have [Node.js](https://nodejs.org/) (v18+) and npm installed.
+* Node.js (v18+)
+* npm (v10+)
 
 ### Installation
 
-Clone this repository and install the dependencies:
+Clone the repository and install the dependencies:
 
 ```bash
-# Navigate to the project directory
-cd "Job Tracker"
-
 # Install package dependencies
 npm install
 ```
 
-### Running Locally
+### Running the App
 
-To spin up the local development server:
+To start the local development server:
 
 ```bash
 npm run dev
 ```
 
-The server will start, typically at **`http://localhost:5173/`**. Any changes you make to [JobTracker.jsx](file:///Users/mymac/Documents/Github/Job%20Tracker/src/JobTracker.jsx) will live-reload instantly in the browser.
+The application will run locally at **`http://localhost:5173/`**.
 
 ### Building for Production
 
