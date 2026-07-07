@@ -9,7 +9,7 @@ Job Search Runway is a light, data-driven tracker built to organize, visualize, 
 ## Deployment
 
 The live application is deployed and accessible at:
-* **Live Demo:** [Job Search Runway](https://your-deployment-link.com)
+* **Live Demo:** [Job Search Runway](https://job-tracker-nine-amber.vercel.app/)
 
 *(Update the link above with your production URL once deployed)*
 
